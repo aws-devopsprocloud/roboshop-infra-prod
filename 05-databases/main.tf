@@ -189,11 +189,11 @@ resource "null_resource" "rabbitmq" {
   connection {
     host = module.rabbitmq.private_ip
     type = "ssh"
-    user = "ec2-user"
-    password = "DevOps321"
+    user = data.aws_ssm_parameter.ec2_user.value
+    password = data.aws_ssm_parameter.ec2_password.value
     bastion_host = data.aws_ssm_parameter.bastion_public_ip.value
-    bastion_user = "ec2-user"
-    bastion_password = "DevOps321"
+    bastion_user = data.aws_ssm_parameter.bastion_user.value
+    bastion_password = data.aws_ssm_parameter.bastion_password.value
     
   }
   
