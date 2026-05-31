@@ -36,7 +36,7 @@ resource "aws_lb_listener" "frontend_alb" {
 
 resource "aws_route53_record" "frontend_alb" {
   zone_id = var.zone_id # ID of your Route 53 zone
-  name    = "*.${var.domain_name}" # *.devopsprocloud.in
+  name    = "prod.${var.domain_name}" # *.devopsprocloud.in
   type    = "A"
 
   alias {
